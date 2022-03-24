@@ -1,19 +1,14 @@
-
-
 const Text = ({ 
-    className = "",
-    value = "",
-    placeholder= ""
+    className = "", 
+    value = "" 
 }) => {
-
-    return (
-        <span 
-            className={className} 
-            placeholder={placeholder}
-        >
-        {value}
-        </span>
-    )
-}
+  return (
+		<span 
+			className={className}
+		>
+		{value}
+		</span>
+  )
+};
 
 export default Text;

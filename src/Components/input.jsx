@@ -6,10 +6,12 @@ const Input = ({
   placeholder = "",
   disabled = false,
   onChange = () => {},
+  onKeyDown = () => {},
   maxLength = 100,
   minLength = 0,
   visibility = true,
   required = false,
+  inputRef,
 }) => {
 
   if (!visibility) {
@@ -27,7 +29,9 @@ const Input = ({
       maxLength={maxLength}
       minLength={minLength}
       onChange={onChange}
+      onKeyDown={onKeyDown}
       required={required}
+      ref={inputRef}
     />
   );
 };

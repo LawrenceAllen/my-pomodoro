@@ -1,7 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import Text from "../../../../Components/text";
 import Button from "../../../../Components/button";
 import Input from "../../../../Components/input";
+import SubtaskList from "./subtask-list";
 
 const SubtaskForm = ({ 
   subtask, 
@@ -10,22 +11,29 @@ const SubtaskForm = ({
   setSubtaskList,
 }) => {
 
-  const [showInput, setShowInput] = useState(true);
-  const [showSubmitButton, setShowSubmitButton] = useState(true);
+  const [showInput, setShowInput] = useState(true)
+  const [showSubmitButton, setShowSubmitButton] = useState(true)
+  const [renamedSubtask, setRenamedSubtask] = useState({
+    id: null,
+    value: '',
+    completed: false
+  })
 
-  const changeHandler = (e) => {
-      setSubtask(e.target.value);
+  const changeHandler = e => {
+    /* Adds a Subtask */
+    setSubtask(e.target.value)
   }
 
-  const submitHandler = (e) => {
+  const submitHandler = e => {
+    /* Adds a Subtask Object on subtaskList */
     e.preventDefault();
     if (subtask.length === 0) {
-      console.log("No Input");
+      console.log("No Input")
     } else {
       setSubtaskList([
         ...subtaskList,
         {id: Math.random() * 10000, value: subtask, completed: false}
-      ]);
+      ])
       setSubtask('')
     }
   }
@@ -40,7 +48,7 @@ const SubtaskForm = ({
           name="Subtask"
           type="text"
           placeholder="Subtask Name"
-          onChange={(e) => changeHandler(e)}
+          onChange={changeHandler}
           visibility={showInput}
           required={true}
         />
@@ -48,17 +56,17 @@ const SubtaskForm = ({
           className="text-slate-700 bg-slate-400"
           value="ADD"
           visibility={showSubmitButton}
-          onClick={(e) => submitHandler(e)}
+          onClick={submitHandler}
         />
       </form>
-      {/* <Button
-        className="my-2 bg-transparent text-slate-100 border border-dashed border-slate-400 border-2"
-        value="Add Subtask"
-        onClick={() => {setShowInput(true); setShowSubmitButton(true)}}
-        visibility={true}
-      /> */}
+      <SubtaskList 
+        subtaskList={subtaskList} 
+        setSubtaskList={setSubtaskList}
+        renamedSubtask={renamedSubtask}
+        setRenamedSubtask={setRenamedSubtask}
+      />
     </div>
   )
 }
 
-export default SubtaskForm;
+export default SubtaskForm

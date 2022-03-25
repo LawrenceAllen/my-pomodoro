@@ -3,7 +3,7 @@ import CreateTaskCard from './components/create-task-card'
 import Button from "../../Components/button"
 
 const ActivitiesPage = () => {
-  const [showCreateTaskCard, setShowCreateTaskCard] = useState(false);
+  const [showCreateTaskCard, setShowCreateTaskCard] = useState(true);
 
   return (
       <>

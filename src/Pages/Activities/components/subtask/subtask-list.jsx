@@ -1,6 +1,11 @@
 import Subtask from "./subtask";
 
-const SubtaskList = ({ subtaskList, setSubtaskList }) => {
+const SubtaskList = ({ 
+  subtaskList, 
+  setSubtaskList,
+  renamedSubtask,
+  setRenamedSubtask,
+}) => {
 
   return (
     <ul>
@@ -12,10 +17,12 @@ const SubtaskList = ({ subtaskList, setSubtaskList }) => {
         subtask={subtask}
         subtaskList={subtaskList}
         setSubtaskList={setSubtaskList}
-      />
-    })}
+        renamedSubtask={renamedSubtask}
+        setRenamedSubtask={setRenamedSubtask}
+        />
+      })}
     </ul>
   )
 }
 
-export default SubtaskList;
+export default SubtaskList

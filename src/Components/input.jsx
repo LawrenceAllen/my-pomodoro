@@ -8,7 +8,14 @@ const Input = ({
   onChange = () => {},
   maxLength = 100,
   minLength = 0,
+  visibility = true,
+  required = false,
 }) => {
+
+  if (!visibility) {
+    return null
+  }
+  
   return (
     <input
       className={`${className} h-full w-full rounded-md border border-slate-400 border-2 p-1`}
@@ -19,6 +26,8 @@ const Input = ({
       disabled={disabled}
       maxLength={maxLength}
       minLength={minLength}
+      onChange={onChange}
+      required={required}
     />
   );
 };

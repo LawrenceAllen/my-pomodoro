@@ -1,6 +1,7 @@
 const TextArea = ({
   className = "",
   name = "",
+  value,
   cols,
   rows,
   placeholder = "",
@@ -14,6 +15,7 @@ const TextArea = ({
       cols={cols}
       rows={rows}
       placeholder={placeholder}
+      value={value}
     ></textarea>
   );
 };

@@ -20,7 +20,7 @@ const Input = ({
   
   return (
     <input
-      className={`${className} h-full w-full rounded-md border border-slate-400 border-2 p-1`}
+      className={`${className} rounded-md border border-slate-400 border-2 p-1`}
       type={type}
       placeholder={placeholder}
       name={name}

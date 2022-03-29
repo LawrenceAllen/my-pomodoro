@@ -4,8 +4,9 @@ import SubtaskForm from "./subtask-form"
 const CreateSubtasks = () => {
   const [subtask, setSubtask] = useState("")
   const [subtaskList, setSubtaskList] = useState([])
+  console.log(subtaskList)
   return (
-    <div className="mb-4">
+    <div className="my-4">
       <SubtaskForm
         subtask={subtask}
         setSubtask={setSubtask}

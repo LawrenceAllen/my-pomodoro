@@ -43,7 +43,7 @@ const SubtaskForm = ({
       <Text className="text-white text-lg" value="Subtasks" />
       <form>
         <Input
-          className="my-1 placeholder:text-md"
+          className="my-1 w-full placeholder:text-md"
           value={subtask}
           name="Subtask"
           type="text"

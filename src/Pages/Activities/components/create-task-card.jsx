@@ -1,15 +1,15 @@
-import { useState } from "react";
-import Input from "../../../Components/input";
-import Button from "../../../Components/button";
-import TextArea from "../../../Components/textarea";
+import { useState } from "react"
+import Input from "../../../Components/input"
+import Button from "../../../Components/button"
+import TextArea from "../../../Components/textarea"
 import CreateSubtasks from "./subtask/create-subtasks"
 
 const CreateTaskCard = ({ showCreateTaskCard, onClose }) => {
-  const [taskTitle, setTaskTitle] = useState("");
-  const [shortDescription, setShortDescription] = useState();
+  const [taskTitle, setTaskTitle] = useState("")
+  const [shortDescription, setShortDescription] = useState()
 
   if (!showCreateTaskCard) {
-    return null;
+    return null
   }
 
   return (
@@ -44,4 +44,4 @@ const CreateTaskCard = ({ showCreateTaskCard, onClose }) => {
   );
 };
 
-export default CreateTaskCard;
+export default CreateTaskCard

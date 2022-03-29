@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from "react"
 import Text from "../../../Components/text"
 import Button from "../../../Components/button"
 
 
 const TaskCard = ({ showTaskCard, onClose }) => {
-    const [taskName, setTaskName] = useState("Task Name");
-    const [shortDescription, setShortDescription] = useState("This is a task card that will consist of different subtasks");
+    const [taskName, setTaskName] = useState("Task Name")
+    const [shortDescription, setShortDescription] = useState("This is a task card that will consist of different subtasks")
 
     if (!showTaskCard) {
         return null
@@ -21,4 +21,4 @@ const TaskCard = ({ showTaskCard, onClose }) => {
     )
 }
 
-export default TaskCard;
+export default TaskCard

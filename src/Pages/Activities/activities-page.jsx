@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import CreateTaskCard from './components/create-task-card'
 import Button from "../../Components/button"
 
 const ActivitiesPage = () => {
-  const [showCreateTaskCard, setShowCreateTaskCard] = useState(true);
+  const [showCreateTaskCard, setShowCreateTaskCard] = useState(true)
 
   return (
       <>
@@ -23,4 +23,4 @@ const ActivitiesPage = () => {
   )
 }
 
-export default ActivitiesPage;
+export default ActivitiesPage

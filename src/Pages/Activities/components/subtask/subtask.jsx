@@ -108,4 +108,4 @@ const Subtask = ({
   )
 }
 
-export default Subtask;
+export default Subtask

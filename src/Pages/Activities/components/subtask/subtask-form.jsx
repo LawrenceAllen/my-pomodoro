@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Text from "../../../../Components/text";
-import Button from "../../../../Components/button";
-import Input from "../../../../Components/input";
-import SubtaskList from "./subtask-list";
+import { useState } from "react"
+import Text from "../../../../Components/text"
+import Button from "../../../../Components/button"
+import Input from "../../../../Components/input"
+import SubtaskList from "./subtask-list"
 
 const SubtaskForm = ({ 
   subtask, 

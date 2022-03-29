@@ -11,4 +11,4 @@ const Text = ({
   )
 };
 
-export default Text;
+export default Text

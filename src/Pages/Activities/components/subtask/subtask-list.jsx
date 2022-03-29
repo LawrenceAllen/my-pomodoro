@@ -1,4 +1,4 @@
-import Subtask from "./subtask";
+import Subtask from "./subtask"
 
 const SubtaskList = ({ 
   subtaskList, 

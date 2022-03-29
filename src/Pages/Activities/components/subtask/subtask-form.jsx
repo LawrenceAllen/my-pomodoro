@@ -4,14 +4,9 @@ import Button from "../../../../Components/button"
 import Input from "../../../../Components/input"
 import SubtaskList from "./subtask-list"
 
-const SubtaskForm = ({ 
-  subtask, 
-  setSubtask, 
-  subtaskList, 
-  setSubtaskList,
-}) => {
-
-  const [showInput, setShowInput] = useState(true)
+const SubtaskForm = () => {
+  const [subtask, setSubtask] = useState("")
+  const [subtaskList, setSubtaskList] = useState([])
   const [showSubmitButton, setShowSubmitButton] = useState(true)
   const [renamedSubtask, setRenamedSubtask] = useState({
     id: null,

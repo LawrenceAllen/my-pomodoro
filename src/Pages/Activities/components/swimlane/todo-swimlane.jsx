@@ -10,7 +10,6 @@ const TodoSwimlane = () => {
   const [task, setTask] = useState("")
   const [taskList, setTaskList] = useState([])
   const [shortDescription, setShortDescription] = useState("")
-  console.log(taskList)
   return (
     <div className='flex flex-col ml-24 w-64 border border-red-400'>
       <div className='flex flex-col content-center w-64'>

@@ -2,6 +2,7 @@ const Input = ({
   className = "",
   type = "",
   name = "",
+  defaultValue,
   value,
   placeholder = "",
   disabled = false,
@@ -24,6 +25,7 @@ const Input = ({
       type={type}
       placeholder={placeholder}
       name={name}
+      defaultValue={defaultValue}
       value={value}
       disabled={disabled}
       maxLength={maxLength}

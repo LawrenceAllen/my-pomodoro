@@ -50,26 +50,30 @@ const Subtask = ({
       /* Hides Edit Input */
       setShowEditInput(false)
     } else if (e.key === 'Enter') {
-      /* Overwrites the current subtask value */
-      updateSubtask(subtask.id, renamedSubtask)
-      /* Resets renamedSubtask */
-      setRenamedSubtask({
-        id: null,
-        value: '',
-        completed: false
-      })
-      /* Hides Edit Input */
-      setShowEditInput(false)
+      if (renamedSubtask.value === '') {
+        setShowEditInput(false)
+      } else {
+        /* Overwrites the current subtask value */
+        updateSubtask(subtask.id, renamedSubtask)
+        /* Resets renamedSubtask */
+        setRenamedSubtask({
+          id: null,
+          value: '',
+          completed: false
+        })
+        /* Hides Edit Input */
+        setShowEditInput(false)
+      }
     }
   }
 
-  const getEditInput = e => { 
-    /* Sets the edit user input to renamedSubtask */
+  const getEditInput = e => {
     setRenamedSubtask({
       id: subtask.id,
       value: e.target.value,
       completed: false
     })
+   
   }
   
   const clickSubtask = () => { 
@@ -85,6 +89,7 @@ const Subtask = ({
             <Input
               className="mr-4 placeholder:text-md"
               name="Edit Subtask"
+              defaultValue={value}
               type="text"
               placeholder={value}
               onChange={getEditInput}

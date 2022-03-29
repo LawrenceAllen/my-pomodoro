@@ -1,5 +1,4 @@
 import { useState } from "react"
-import Text from "../../../../Components/text"
 import Button from "../../../../Components/button"
 import Input from "../../../../Components/input"
 import SubtaskList from "./subtask-list"
@@ -34,7 +33,6 @@ const SubtaskForm = () => {
 
   return (
     <div>
-      <Text className="text-white text-lg" value="Subtasks" />
       <form>
         <Input
           className="my-1 w-full placeholder:text-md"

@@ -1,10 +1,12 @@
 const Text = ({ 
     className = "", 
-    value = "" 
+    value = "",
+		onClick = () => {},
 }) => {
   return (
 		<span 
 			className={className}
+			onClick={onClick}
 		>
 		{value}
 		</span>

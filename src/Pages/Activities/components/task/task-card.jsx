@@ -10,17 +10,16 @@ const TaskCard = ({ task }) => {
 	const [editMode, setEditMode] = useState(false)
 	const [showCreateSubtasks, setShowCreateSubtasks] = useState(false)
 
-	const toggleShowCreateSubtasks = () => {
-		if (!showCreateSubtasks) {
-			setShowCreateSubtasks(true)
-		} else {
-			setShowCreateSubtasks(false)
-		}
+	let cursorType = ""
+	if (!showCreateSubtasks) {
+		cursorType = "pointer"
+	} else {
+		cursorType = "auto"
 	}
 
 	return (
 		<div className="flex flex-col h-auto bg-slate-700 px-4 py-2 border border-red-400">
-			<div onClick={toggleShowCreateSubtasks}>
+			<div className={`cursor-${cursorType}`} onClick={() => setShowCreateSubtasks(true)}>
 				{editMode
 				? <div className="flex flex-col">
 						<Input
@@ -58,6 +57,7 @@ const TaskCard = ({ task }) => {
 			</div>
 			<CreateSubtasks 
 				showCreateSubtasks={showCreateSubtasks}
+				onClose={() => setShowCreateSubtasks(false)}
 			/>
 		</div>
 	)

@@ -109,7 +109,7 @@ const Subtask = ({
         
         : <div className="flex">
             <li 
-              className="my-4 text-xl text-slate-100"
+              className="my-4 text-xl text-slate-100 cursor-pointer"
               key={subtask.id} 
               onClick={clickSubtask}
             >

@@ -7,7 +7,6 @@ import SubtaskList from "./subtask-list"
 const SubtaskForm = () => {
   const [subtask, setSubtask] = useState("")
   const [subtaskList, setSubtaskList] = useState([])
-  const [showSubmitButton, setShowSubmitButton] = useState(true)
   const [renamedSubtask, setRenamedSubtask] = useState({
     id: null,
     value: '',
@@ -49,7 +48,6 @@ const SubtaskForm = () => {
         <Button
           className="text-slate-700 bg-slate-400"
           value="ADD"
-          visibility={showSubmitButton}
           onClick={submitHandler}
         />
       </form>

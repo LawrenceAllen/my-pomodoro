@@ -5,11 +5,7 @@ import Text from "../../../../Components/text"
 import CreateSubtasks from "../subtask/create-subtasks"
 
 
-const TaskCard = ({
-	task,
-	taskList,
-	setTaskList,
-}) => {
+const TaskCard = ({ task }) => {
 
 	const [editMode, setEditMode] = useState(false)
 	const [showCreateSubtasks, setShowCreateSubtasks] = useState(false)

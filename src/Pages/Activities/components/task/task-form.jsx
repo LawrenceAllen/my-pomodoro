@@ -1,4 +1,3 @@
-import React from 'react'
 import Input from "../../../../Components/input"
 import TextArea from "../../../../Components/textarea"
 import Button from "../../../../Components/button"

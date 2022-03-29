@@ -1,15 +1,14 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import TaskList from '../task/task-list'
 import CreateTask from '../task/create-task'
 import Button from "../../../../Components/button"
 
 const TodoSwimlane = () => {
-  const [showTaskCard, setShowTaskCard] = useState(true)
-  const [showCreateTask, setShowCreateTask] = useState(false)
-
   const [task, setTask] = useState("")
   const [taskList, setTaskList] = useState([])
   const [description, setDescription] = useState("")
+
+  const [showCreateTask, setShowCreateTask] = useState(false)
   return (
     <div className='flex flex-col ml-24 w-64 border border-red-400'>
       <div className='flex flex-col content-center w-64'>

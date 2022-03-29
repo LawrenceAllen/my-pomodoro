@@ -9,6 +9,6 @@ const Text = ({
 		{value}
 		</span>
   )
-};
+}
 
 export default Text

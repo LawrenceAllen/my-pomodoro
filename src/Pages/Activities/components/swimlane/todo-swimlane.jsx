@@ -9,7 +9,7 @@ const TodoSwimlane = () => {
 
   const [task, setTask] = useState("")
   const [taskList, setTaskList] = useState([])
-  const [shortDescription, setShortDescription] = useState("")
+  const [description, setDescription] = useState("")
   return (
     <div className='flex flex-col ml-24 w-64 border border-red-400'>
       <div className='flex flex-col content-center w-64'>
@@ -18,8 +18,8 @@ const TodoSwimlane = () => {
           setTask={setTask}
           taskList={taskList}
           setTaskList={setTaskList}
-          shortDescription={shortDescription}
-          setShortDescription={setShortDescription}
+          description={description}
+          setDescription={setDescription}
           showCreateTask={showCreateTask}
           setShowCreateTask={setShowCreateTask}
         />
@@ -30,12 +30,8 @@ const TodoSwimlane = () => {
         value="Add Task"
       />
       <TaskList 
-        task={task}
-        setTask={setTask}
         taskList={taskList}
         setTaskList={setTaskList}
-        shortDescription={shortDescription}
-        setShortDescription={setShortDescription}
       />
     </div>
   )

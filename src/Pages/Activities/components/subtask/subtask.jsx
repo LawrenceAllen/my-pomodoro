@@ -11,7 +11,7 @@ const Subtask = ({
   setRenamedSubtask,
 }) => {
 
-  const [showEditInput, setShowEditInput] = useState(false);
+  const [showEditInput, setShowEditInput] = useState(false)
 
   const deleteSubtask = () => {
     /* Deletes a subtask */
@@ -78,7 +78,7 @@ const Subtask = ({
   
   const clickSubtask = () => { 
     /* Shows the edit input of the subtask */
-    setShowEditInput(true);
+    setShowEditInput(true)
   } 
 
   return (

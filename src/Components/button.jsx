@@ -18,7 +18,7 @@ const Button = ({
     >
     {value}
     </button>
-  );
-};
+  )
+}
 
 export default Button

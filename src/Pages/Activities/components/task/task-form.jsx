@@ -8,8 +8,8 @@ const TaskForm = ({
   setTask,
   taskList,
   setTaskList,
-  shortDescription,
-  setShortDescription,
+  description,
+  setDescription,
   setShowCreateTask,
 }) => {
 
@@ -20,21 +20,21 @@ const TaskForm = ({
 
   const changeHandlerDescription = e => {
     /* Adds a Description */
-    setShortDescription(e.target.value)
+    setDescription(e.target.value)
   }
 
   const submitHandler = e => {
     /* Adds a Task Object on taskList */
-    e.preventDefault();
-    if (task.length === 0 || shortDescription.length === 0) {
+    e.preventDefault()
+    if (task.length === 0 || description.length === 0) {
       console.log("No input")
     } else {
       setTaskList([
         ...taskList,
-        {id: Math.random() * 10000, value: task, desc: shortDescription, completed: false}
+        {id: Math.random() * 10000, value: task, desc: description, completed: false}
       ])
       setTask('')
-      setShortDescription('')
+      setDescription('')
       setShowCreateTask(false)
     }
   }
@@ -53,9 +53,9 @@ const TaskForm = ({
         />
         <TextArea 
           className="my-1 h-28"
-          content={shortDescription}
-          name="Short Description" 
-          placeholder="Short Description" 
+          defaultValue={description}
+          name="Description" 
+          placeholder="Description" 
           onChange={changeHandlerDescription}
         />
         <Button

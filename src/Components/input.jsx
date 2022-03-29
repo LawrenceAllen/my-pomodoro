@@ -35,7 +35,7 @@ const Input = ({
       required={required}
       ref={inputRef}
     />
-  );
-};
+  )
+}
 
 export default Input

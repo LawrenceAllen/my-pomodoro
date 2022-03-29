@@ -21,7 +21,7 @@ const SubtaskForm = () => {
 
   const submitHandler = e => {
     /* Adds a Subtask Object on subtaskList */
-    e.preventDefault();
+    e.preventDefault()
     if (subtask.length === 0) {
       console.log("No Input")
     } else {

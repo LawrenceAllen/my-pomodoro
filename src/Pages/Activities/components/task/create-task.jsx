@@ -6,11 +6,10 @@ const CreateTaskCard = ({
   setTask,
   taskList,
   setTaskList,
-  shortDescription,
-  setShortDescription,
+  description,
+  setDescription,
   showCreateTask,
-  setShowCreateTask, 
-  onClose 
+  setShowCreateTask,
 }) => {
 
   if (!showCreateTask) {
@@ -24,13 +23,12 @@ const CreateTaskCard = ({
         setTask={setTask}
         taskList={taskList}
         setTaskList={setTaskList}
-        shortDescription={shortDescription}
-        setShortDescription={setShortDescription}
+        description={description}
+        setDescription={setDescription}
         setShowCreateTask={setShowCreateTask}
-        onClose={onClose}
       />
     </div>
-  );
-};
+  )
+}
 
 export default CreateTaskCard

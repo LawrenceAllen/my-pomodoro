@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import TaskList from '../task/task-list'
-import CreateTask from '../task/create-task'
+import TaskForm from '../task/task-form'
 import Button from "../../../../Components/button"
 
 const TodoSwimlane = () => {
@@ -9,10 +9,16 @@ const TodoSwimlane = () => {
   const [description, setDescription] = useState("")
 
   const [showCreateTask, setShowCreateTask] = useState(false)
+  const [showAddTaskButton, setShowAddTaskButton] = useState("block")
+
+  const hideAddTaskButton = () => {
+    setShowCreateTask(true)
+    setShowAddTaskButton("hidden")
+  }
   return (
     <div className='flex flex-col ml-24 w-64 border border-red-400'>
       <div className='flex flex-col content-center w-64'>
-        <CreateTask 
+        <TaskForm 
           task={task}
           setTask={setTask}
           taskList={taskList}
@@ -21,11 +27,12 @@ const TodoSwimlane = () => {
           setDescription={setDescription}
           showCreateTask={showCreateTask}
           setShowCreateTask={setShowCreateTask}
+          setShowAddTaskButton={setShowAddTaskButton}
         />
       </div>
       <Button 
-        className="my-4 bg-transparent text-slate-600 border border-dashed border-slate-400 border-2" 
-        onClick={() => setShowCreateTask(true)} 
+        className={`${showAddTaskButton} my-4 bg-transparent text-slate-600 border border-dashed border-slate-400 border-2`}
+        onClick={hideAddTaskButton} 
         value="Add Task"
       />
       <TaskList 

@@ -9,8 +9,19 @@ const TaskForm = ({
   setTaskList,
   description,
   setDescription,
+  showCreateTask,
   setShowCreateTask,
+  setShowAddTaskButton,
 }) => {
+
+  if (!showCreateTask) {
+    return null
+  }
+
+  const showAddTaskButton = () => {
+    setShowCreateTask(false)
+    setShowAddTaskButton("block")
+  }
 
   const changeHandlerTask = e => {
     /* Adds a Task */
@@ -35,11 +46,12 @@ const TaskForm = ({
       setTask('')
       setDescription('')
       setShowCreateTask(false)
+      setShowAddTaskButton("block")
     }
   }
 
   return (
-    <div>
+    <div className="flex flex-col bg-slate-700 px-3 py-2 mb-4">
       <form className="flex flex-col content-center w-full">
         <Input 
           className="my-1 placeholder:text-lg"
@@ -59,7 +71,7 @@ const TaskForm = ({
         />
         <Button
           className="my-1 bg-red-500 text-white"
-          onClick={() => setShowCreateTask(false)}
+          onClick={showAddTaskButton}
           value="CANCEL"
         />
         <Button

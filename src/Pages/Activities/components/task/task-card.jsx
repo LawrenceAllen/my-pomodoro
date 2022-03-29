@@ -5,7 +5,7 @@ import Text from "../../../../Components/text"
 import CreateSubtasks from "../subtask/create-subtasks"
 
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task, setShowAddTaskButton }) => {
 
 	const [editMode, setEditMode] = useState(false)
 	const [showCreateSubtasks, setShowCreateSubtasks] = useState(false)
@@ -17,9 +17,19 @@ const TaskCard = ({ task }) => {
 		cursorType = "auto"
 	}
 
+	const hideAddTaskButton = () => {
+		setShowCreateSubtasks(true)
+		setShowAddTaskButton("hidden")
+	}
+
+	const showAddTaskButton = () => {
+		setShowCreateSubtasks(false)
+		setShowAddTaskButton("block")
+	}
+
 	return (
-		<div className="flex flex-col h-auto bg-slate-700 px-4 py-2 border border-red-400">
-			<div className={`cursor-${cursorType}`} onClick={() => setShowCreateSubtasks(true)}>
+		<div className="flex flex-col h-auto bg-slate-700 px-4 py-2 mb-4">
+			<div className={`cursor-${cursorType}`} onClick={hideAddTaskButton}>
 				{editMode
 				? <div className="flex flex-col">
 						<Input
@@ -57,7 +67,7 @@ const TaskCard = ({ task }) => {
 			</div>
 			<CreateSubtasks 
 				showCreateSubtasks={showCreateSubtasks}
-				onClose={() => setShowCreateSubtasks(false)}
+				onClose={showAddTaskButton}
 			/>
 		</div>
 	)

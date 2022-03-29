@@ -3,6 +3,7 @@ import TaskCard from './task-card'
 const TaskList = ({
   taskList,
   setTaskList,
+  setShowAddTaskButton,
 }) => {
   return (
     <div>
@@ -12,6 +13,7 @@ const TaskList = ({
           key={task.id}
           taskList={taskList}
           setTaskList={setTaskList}
+          setShowAddTaskButton={setShowAddTaskButton}
         />
       })}
     </div>

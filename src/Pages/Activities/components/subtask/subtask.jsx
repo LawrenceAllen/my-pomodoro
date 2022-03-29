@@ -36,13 +36,17 @@ const Subtask = ({
 
   const renameSubtaskClick = () => {
     /* Same as rename task but for button onClick*/
-    updateSubtask(subtask.id, renamedSubtask)
-    setRenamedSubtask({
-      id: null,
-      value: '',
-      completed: false
-    })
-    setShowEditInput(false) 
+    if (renamedSubtask.value === '') {
+      setShowEditInput(false)
+    } else {
+      updateSubtask(subtask.id, renamedSubtask)
+      setRenamedSubtask({
+        id: null,
+        value: '',
+        completed: false
+      })
+      setShowEditInput(false) 
+    }
   }
 
   const renameSubtaskKey = e => {

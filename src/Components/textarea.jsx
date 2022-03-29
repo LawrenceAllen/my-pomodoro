@@ -6,6 +6,7 @@ const TextArea = ({
   rows,
   placeholder = "",
   disabled = false,
+  onChange = () => {},
 }) => {
   return (
     <textarea
@@ -15,6 +16,7 @@ const TextArea = ({
       rows={rows}
       placeholder={placeholder}
       disabled={disabled}
+      onChange={onChange}
     >
     {content} 
     </textarea>

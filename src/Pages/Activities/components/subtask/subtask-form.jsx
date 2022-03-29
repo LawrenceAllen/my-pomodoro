@@ -49,7 +49,6 @@ const SubtaskForm = ({
           type="text"
           placeholder="Subtask Name"
           onChange={changeHandler}
-          visibility={showInput}
           required={true}
         />
         <Button

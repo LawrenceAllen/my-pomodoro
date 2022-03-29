@@ -1,10 +1,14 @@
 import { useState } from "react"
 import SubtaskForm from "./subtask-form"
 
-const CreateSubtasks = () => {
+const CreateSubtasks = ({ showCreateSubtasks }) => {
   const [subtask, setSubtask] = useState("")
   const [subtaskList, setSubtaskList] = useState([])
-  console.log(subtaskList)
+
+  if (!showCreateSubtasks) {
+    return null
+  }
+  
   return (
     <div className="my-4">
       <SubtaskForm

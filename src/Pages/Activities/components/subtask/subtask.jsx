@@ -77,7 +77,6 @@ const Subtask = ({
       value: e.target.value,
       completed: false
     })
-   
   }
   
   const clickSubtask = () => { 

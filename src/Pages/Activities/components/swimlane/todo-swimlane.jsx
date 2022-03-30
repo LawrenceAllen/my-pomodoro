@@ -7,6 +7,12 @@ const TodoSwimlane = () => {
   const [task, setTask] = useState("")
   const [taskList, setTaskList] = useState([])
   const [description, setDescription] = useState("")
+  const [newTask, setNewTask] = useState({
+    id: null,
+    value: '',
+    desc: '',
+    completed: false
+  })
 
   const [showCreateTask, setShowCreateTask] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")
@@ -38,6 +44,8 @@ const TodoSwimlane = () => {
       <TaskList 
         taskList={taskList}
         setTaskList={setTaskList}
+        newTask={newTask}
+        setNewTask={setNewTask}
         setShowAddTaskButton={setShowAddTaskButton}
       />
     </div>

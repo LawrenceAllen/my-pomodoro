@@ -7,6 +7,7 @@ const TextArea = ({
   placeholder = "",
   disabled = false,
   onChange = () => {},
+  onKeyDown = () => {},
 }) => {
   return (
     <textarea
@@ -18,6 +19,7 @@ const TextArea = ({
       placeholder={placeholder}
       disabled={disabled}
       onChange={onChange}
+      onKeyDown={onKeyDown}
     >
     </textarea>
   )

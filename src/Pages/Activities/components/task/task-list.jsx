@@ -15,8 +15,6 @@ const TaskList = ({
           key={task.id}
           taskList={taskList}
           setTaskList={setTaskList}
-          newTask={newTask}
-          setNewTask={setNewTask}
           setShowAddTaskButton={setShowAddTaskButton}
         />
       })}

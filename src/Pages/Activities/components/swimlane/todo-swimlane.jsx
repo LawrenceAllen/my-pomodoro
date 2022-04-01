@@ -13,6 +13,7 @@ const TodoSwimlane = () => {
     desc: '',
     completed: false
   })
+  console.log(taskList)
 
   const [showCreateTask, setShowCreateTask] = useState(false)
   const [showAddTaskButton, setShowAddTaskButton] = useState("block")

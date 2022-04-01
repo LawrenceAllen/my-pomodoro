@@ -8,18 +8,19 @@ import TextArea from "../../../../Components/textarea"
 
 const TaskCard = ({ 
 	task,
-	taskList,
 	setTaskList,
-	newTask,
-  setNewTask, 
 	setShowAddTaskButton }) => {
 
-	const [editMode, setEditMode] = useState(false)
-	const [editTask, setEditTask] = useState(false)
-	const [editDescription, setEditDescription] = useState(false)
-	const [showCreateSubtasks, setShowCreateSubtasks] = useState(false)
-	const [renamedTask, setRenamedTask] = useState(false)
-	const [renamedDescription, setRenamedDescription] = useState(false)
+	const [editMode, setEditMode] = useState(false) /* Used to check if task card is clicked */
+	const [editTask, setEditTask] = useState(false) /* Used to check if task is clicked */
+	const [editDescription, setEditDescription] = useState(false) /* Used to check if description is clicked */
+	const [showCreateSubtasks, setShowCreateSubtasks] = useState(false) /*  */
+	const [renamedTask, setRenamedTask] = useState({
+    id: null,
+    value: '',
+		desc: '',
+    completed: false
+  })
 
 	let cursorType = ""
 	if (!showCreateSubtasks) {
@@ -52,30 +53,68 @@ const TaskCard = ({
 		setEditDescription(true)
 	}
 
-	const renameTaskKey = e => {
-		if (e.key === 'Escape') {
-			setEditTask(false)
+	const renameTaskFunction = e => {
+		if (editTask) {
+			if (e.key === 'Escape') {
+				setEditTask(false)
+			} else if (e.key === 'Enter') {
+				if (renamedTask.value === '') {
+					setEditTask(false)
+				} else {
+					updateTask(task.id, renamedTask)
+					setRenamedTask({
+						id: null,
+						value: '',
+						desc: '',
+						completed: false
+					})
+					setEditTask(false)
+				}
+			}
+		} else if (editDescription) {
+			if (e.key === 'Escape') {
+				setEditDescription(false)
+			} 
 		}
 	}
 
-	const renameDescriptionKey = e => {
-		if (e.key === 'Escape') {
+	const renameTaskFunctionClick = () => {
+		if (renamedTask.desc === '') {
+			setEditDescription(false)
+		} else {
+			updateTask(task.id, renamedTask)
+			setRenamedTask({
+				id: null,
+				value: '',
+				desc: '',
+				completed: false
+			})
 			setEditDescription(false)
 		}
 	}
 
 	const getRenamedTask = e => {
-		setRenamedTask(e.target.value)
-	} 
-
-	const getRenamedDescription = e => {
-		setRenamedDescription(e.target.value)
+		setRenamedTask({
+      id: task.id,
+      value: e.target.value,
+			desc: task.desc,
+      completed: false
+    })
 	}
 	
-	const updateTask = (taskID, taskValue, descriptionValue) => { 
+	const getRenamedDescription = e => {
+		setRenamedTask({
+      id: task.id,
+      value: task.value,
+			desc: e.target.value,
+      completed: false
+    })
+	}
+	
+	const updateTask = (taskID, newTask) => { 
     /* Checks if element.id is equal to subtask.id then get renamedSubtask*/
     setTaskList(taskList => taskList.map(element => 
-      (console.log(element))))
+      (element.id === taskID ? newTask : element)))
 	}
 
 	return (
@@ -86,10 +125,11 @@ const TaskCard = ({
 						? <Input
 								className="my-1 placeholder:text-lg"
 								name="Edit Task"
-								value={task.value}
+								defaultValue={task.value}
 								type="text"
 								placeholder={task.value}
-								onKeyDown={renameTaskKey}
+								onChange={getRenamedTask}
+								onKeyDown={renameTaskFunction}
 								required={true}
 							/>
 						: <div>
@@ -115,12 +155,13 @@ const TaskCard = ({
 									type="text"
 									placeholder={task.desc}
 									onChange={getRenamedDescription}
-									onKeyDown={renameDescriptionKey}
+									onKeyDown={renameTaskFunction}
 									required={true}
 									/>
 									<Button
 										className="flex justify-center text-red-700 bg-slate-100"
 										value="Update"
+										onClick={renameTaskFunctionClick}
 									/>	
 							</div>
 

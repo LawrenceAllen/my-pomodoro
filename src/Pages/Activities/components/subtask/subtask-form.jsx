@@ -2,6 +2,7 @@ import { useState } from "react"
 import Button from "../../../../Components/button"
 import Input from "../../../../Components/input"
 import SubtaskList from "./subtask-list"
+import { VscAdd } from "react-icons/vsc";
 
 const SubtaskForm = () => {
   const [subtask, setSubtask] = useState("")
@@ -43,11 +44,16 @@ const SubtaskForm = () => {
           onChange={changeHandler}
           required={true}
         />
-        <Button
-          className="text-slate-700 bg-slate-400"
-          value="ADD"
+        <Button 
+          className="cursor-pointer flex justify-center bg-slate-500 hover:bg-slate-600 rounded mt-1" 
           onClick={submitHandler}
-        />
+          value=
+          {<VscAdd
+            className="fill-white py-1" 
+            size={32}
+          />}
+        >
+        </Button>
       </form>
       <SubtaskList 
         subtaskList={subtaskList} 

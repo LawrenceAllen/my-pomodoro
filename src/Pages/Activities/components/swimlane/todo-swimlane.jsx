@@ -23,8 +23,8 @@ const TodoSwimlane = () => {
     setShowAddTaskButton("hidden")
   }
   return (
-    <div className='flex flex-col ml-24 w-64'>
-      <div className='flex flex-col content-center w-64'>
+    <div className='flex flex-col ml-24 w-72'>
+      <div className='flex flex-col content-center w-full'>
         <TaskForm 
           task={task}
           setTask={setTask}

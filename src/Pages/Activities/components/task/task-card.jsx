@@ -4,6 +4,10 @@ import Button from "../../../../Components/button"
 import Text from "../../../../Components/text"
 import CreateSubtasks from "../subtask/create-subtasks"
 import TextArea from "../../../../Components/textarea"
+import { AiOutlineEdit } from "react-icons/ai";
+import { BsCheckSquare } from "react-icons/bs";
+import { VscCheck } from "react-icons/vsc"
+
 
 
 const TaskCard = ({ 
@@ -79,17 +83,32 @@ const TaskCard = ({
 	}
 
 	const renameTaskFunctionClick = () => {
-		if (renamedTask.desc === '') {
-			setEditDescription(false)
-		} else {
-			updateTask(task.id, renamedTask)
-			setRenamedTask({
-				id: null,
-				value: '',
-				desc: '',
-				completed: false
-			})
-			setEditDescription(false)
+		if (editTask) {
+			if (renamedTask.value === '') {
+				setEditTask(false)
+			} else {
+				updateTask(task.id, renamedTask)
+				setRenamedTask({
+					id: null,
+					value: '',
+					desc: '',
+					completed: false
+				})
+				setEditTask(false)
+			}
+		} else if (editDescription) {
+			if (renamedTask.desc === '') {
+				setEditDescription(false)
+			} else {
+				updateTask(task.id, renamedTask)
+				setRenamedTask({
+					id: null,
+					value: '',
+					desc: '',
+					completed: false
+				})
+				setEditDescription(false)
+			}
 		}
 	}
 
@@ -120,25 +139,39 @@ const TaskCard = ({
 	return (
 		<div className="flex flex-col h-auto bg-slate-700 px-4 py-2 mb-4">
 			<div className={`cursor-${cursorType}`} onClick={hideAddTaskButton}>
-				<div className="flex flex-col">
+				<div className="flex flex-col gap-2">
 						{editTask 
-						? <Input
-								className="my-1 placeholder:text-lg"
-								name="Edit Task"
-								defaultValue={task.value}
-								type="text"
-								placeholder={task.value}
-								onChange={getRenamedTask}
-								onKeyDown={renameTaskFunction}
-								required={true}
-							/>
+						? <div className="flex justify-between items-center">
+								<Input
+									className="my-1 placeholder:text-lg w-full"
+									name="Edit Task"
+									defaultValue={task.value}
+									type="text"
+									placeholder={task.value}
+									onChange={getRenamedTask}
+									onKeyDown={renameTaskFunction}
+									required={true}
+								/>
+								<BsCheckSquare
+									className="cursor-pointer fill-green-500 hover:fill-green-700 " 
+									size={42}
+									onClick={renameTaskFunctionClick}
+								/>
+							</div> 
 						: <div>
 								{editMode 
-								? <Text
-										className="text-slate-100 text-xl" 
-										value={task.value}
-										onClick={showEditTaskInput}
-									/>
+								? <div className="flex justify-between">
+										<Text
+											className="text-slate-100 text-xl" 
+											value={task.value}
+											onClick={showEditTaskInput}
+										/>
+										<AiOutlineEdit
+											className="cursor-pointer fill-slate-50 hover:fill-slate-400 " 
+											size={32}
+											onClick={showEditTaskInput} 
+										/>
+									</div> 
 								: <Text
 										className="text-slate-100 text-xl" 
 										value={task.value}
@@ -148,7 +181,7 @@ const TaskCard = ({
 						}
 						{editDescription 
 						? <div>
-							<TextArea
+								<TextArea
 									className="my-1 h-28 w-full"
 									name="Edit Short Description"
 									defaultValue={task.desc}
@@ -157,21 +190,33 @@ const TaskCard = ({
 									onChange={getRenamedDescription}
 									onKeyDown={renameTaskFunction}
 									required={true}
-									/>
-									<Button
-										className="flex justify-center text-red-700 bg-slate-100"
-										value="Update"
-										onClick={renameTaskFunctionClick}
-									/>	
+								/>
+								<Button 
+									className="cursor-pointer flex justify-center bg-slate-500 hover:bg-slate-600 rounded w-full"
+									onClick={renameTaskFunctionClick}
+									value=
+									{<VscCheck 
+										className="fill-white py-1" 
+										size={32}
+									/>}
+								>
+								</Button>
 							</div>
 
 						: <div>
 								{editMode 
-								? <Text
-										className="text-slate-100 text-xl" 
-										value={task.desc}
-										onClick={showEditDescriptionInput}
-									/>
+								? <div className="flex justify-between">
+										<Text
+											className="text-slate-100 text-xl" 
+											value={task.desc}
+											onClick={showEditDescriptionInput}
+										/>
+										<AiOutlineEdit
+											className="cursor-pointer fill-slate-50 hover:fill-slate-400 " 
+											size={32}
+											onClick={showEditDescriptionInput} 
+										/>
+									</div> 
 								: <Text
 										className="text-slate-100 text-xl" 
 										value={task.desc}

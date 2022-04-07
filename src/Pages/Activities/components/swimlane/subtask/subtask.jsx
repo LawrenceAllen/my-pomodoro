@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import Input from "../../../../Components/input"
+import Input from "../../../../../Components/input"
 import { VscDiffRemoved } from "react-icons/vsc"
 import { AiOutlineEdit } from "react-icons/ai"
 import { BsCheckSquare } from "react-icons/bs"

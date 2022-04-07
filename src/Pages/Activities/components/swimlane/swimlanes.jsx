@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import TaskForm from '../task/task-form'
-import TaskCard from '../task/task-card'
+import TaskForm from './task/task-form'
+import TaskCard from './task/task-card'
 import Button from "../../../../Components/button"
 
 const Swimlanes = () => {
@@ -63,19 +63,17 @@ const Swimlanes = () => {
   return (
     <div className='flex gap-32'>
       <div className='flex flex-col ml-24 w-72'>
-        <div className='border border-red-500'>
-          {taskList.map((task) => {
-            if (task.completed === false && task.doing === false) {
-              return <TaskCard 
-                task={task}
-                key={task.id}
-                taskList={taskList}
-                setTaskList={setTaskList}
-                setShowAddTaskButton={setShowAddTaskButton}
-              />
-            }})
-          }
-        </div>
+        {taskList.map((task) => {
+          if (task.completed === false && task.doing === false) {
+            return <TaskCard 
+              task={task}
+              key={task.id}
+              taskList={taskList}
+              setTaskList={setTaskList}
+              setShowAddTaskButton={setShowAddTaskButton}
+            />
+          }})
+        }
         <TaskForm 
           task={task}
           setTask={setTask}
@@ -93,7 +91,7 @@ const Swimlanes = () => {
           value="Add Task"
         />
       </div>
-      <div className='border border-blue-500 w-72'>
+      <div className='w-72'>
         {taskList.map((task) => {
           if (task.completed === false && task.doing === true) {
             return <TaskCard 
@@ -106,7 +104,7 @@ const Swimlanes = () => {
           }})
         }
       </div>
-      <div className='border border-green-500 w-72'>
+      <div className='w-72'>
         {taskList.map((task) => {
           if (task.completed === true && task.doing === false) {
             return <TaskCard 

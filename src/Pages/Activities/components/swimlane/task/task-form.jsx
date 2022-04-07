@@ -1,6 +1,6 @@
-import Input from "../../../../Components/input"
-import TextArea from "../../../../Components/textarea"
-import Button from "../../../../Components/button"
+import Input from "../../../../../Components/input"
+import TextArea from "../../../../../Components/textarea"
+import Button from "../../../../../Components/button"
 
 const TaskForm = ({
   task,

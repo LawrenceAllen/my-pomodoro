@@ -1,6 +1,6 @@
 import { useState } from "react"
-import Button from "../../../../Components/button"
-import Input from "../../../../Components/input"
+import Button from "../../../../../Components/button"
+import Input from "../../../../../Components/input"
 import SubtaskList from "./subtask-list"
 import { VscAdd } from "react-icons/vsc"
 

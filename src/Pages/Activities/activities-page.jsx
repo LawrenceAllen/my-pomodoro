@@ -1,11 +1,13 @@
 import Swimlanes from "./components/swimlane/swimlanes"
+import Sidebar from "./components/bar/sidebar"
 
 const ActivitiesPage = () => {
   
   return (
-      <div className='flex mt-10'>
-        <Swimlanes />
-      </div>
+    <div className='flex h-screen'>
+      <Sidebar />
+      <Swimlanes />
+    </div>
   )
 }
 

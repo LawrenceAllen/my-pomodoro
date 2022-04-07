@@ -41,7 +41,13 @@ const TaskForm = ({
     } else {
       setTaskList([
         ...taskList,
-        {id: Math.random() * 10000, value: task, desc: description, completed: false}
+        {
+          id: Math.random() * 10000, 
+          value: task, 
+          desc: description, 
+          completed: false,
+          doing: false
+        }
       ])
       setTask('')
       setDescription('')

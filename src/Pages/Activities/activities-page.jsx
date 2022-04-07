@@ -1,10 +1,10 @@
-import TodoSwimlane from "./components/swimlane/todo-swimlane"
+import Swimlanes from "./components/swimlane/swimlanes"
 
 const ActivitiesPage = () => {
   
   return (
       <div className='flex mt-10'>
-        <TodoSwimlane />
+        <Swimlanes />
       </div>
   )
 }

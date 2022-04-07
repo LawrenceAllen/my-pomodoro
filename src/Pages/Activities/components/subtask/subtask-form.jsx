@@ -2,11 +2,12 @@ import { useState } from "react"
 import Button from "../../../../Components/button"
 import Input from "../../../../Components/input"
 import SubtaskList from "./subtask-list"
-import { VscAdd } from "react-icons/vsc";
+import { VscAdd } from "react-icons/vsc"
 
 const SubtaskForm = () => {
   const [subtask, setSubtask] = useState("")
   const [subtaskList, setSubtaskList] = useState([])
+  console.log(subtaskList)
   const [renamedSubtask, setRenamedSubtask] = useState({
     id: null,
     value: '',

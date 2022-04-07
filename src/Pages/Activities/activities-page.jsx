@@ -4,7 +4,7 @@ import Sidebar from "./components/bar/sidebar"
 const ActivitiesPage = () => {
   
   return (
-    <div className='flex h-screen'>
+    <div className='flex'>
       <Sidebar />
       <Swimlanes />
     </div>

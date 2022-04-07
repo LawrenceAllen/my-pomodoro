@@ -2,6 +2,8 @@ import { useState } from 'react'
 import TaskForm from './task/task-form'
 import TaskCard from './task/task-card'
 import Button from "../../../../Components/button"
+import Text from '../../../../Components/text'
+import Topbar from '../../components/bar/topbar'
 
 const Swimlanes = () => {
   const [task, setTask] = useState("")
@@ -44,13 +46,6 @@ const Swimlanes = () => {
     
   ])
   const [description, setDescription] = useState("")
-  const [newTask, setNewTask] = useState({
-    id: null,
-    value: '',
-    desc: '',
-    completed: false,
-    doing: false
-  })
   console.log(taskList)
 
   const [showCreateTask, setShowCreateTask] = useState(false)
@@ -61,61 +56,79 @@ const Swimlanes = () => {
     setShowAddTaskButton("hidden")
   }
   return (
-    <div className='flex gap-32'>
-      <div className='flex flex-col ml-24 w-72'>
-        {taskList.map((task) => {
-          if (task.completed === false && task.doing === false) {
-            return <TaskCard 
-              task={task}
-              key={task.id}
-              taskList={taskList}
-              setTaskList={setTaskList}
-              setShowAddTaskButton={setShowAddTaskButton}
-            />
-          }})
-        }
-        <TaskForm 
-          task={task}
-          setTask={setTask}
-          taskList={taskList}
-          setTaskList={setTaskList}
-          description={description}
-          setDescription={setDescription}
-          showCreateTask={showCreateTask}
-          setShowCreateTask={setShowCreateTask}
-          setShowAddTaskButton={setShowAddTaskButton}
-        />
-        <Button 
-          className={`${showAddTaskButton} my-4 bg-transparent text-slate-600 border border-dashed border-slate-400 border-2`}
-          onClick={hideAddTaskButton} 
-          value="Add Task"
-        />
-      </div>
-      <div className='w-72'>
-        {taskList.map((task) => {
-          if (task.completed === false && task.doing === true) {
-            return <TaskCard 
-              task={task}
-              key={task.id}
-              taskList={taskList}
-              setTaskList={setTaskList}
-              setShowAddTaskButton={setShowAddTaskButton}
-            />
-          }})
-        }
-      </div>
-      <div className='w-72'>
-        {taskList.map((task) => {
-          if (task.completed === true && task.doing === false) {
-            return <TaskCard 
-              task={task}
-              key={task.id}
-              taskList={taskList}
-              setTaskList={setTaskList}
-              setShowAddTaskButton={setShowAddTaskButton}
-            />
-          }})
-        }
+    <div className='w-full'>
+      <Topbar />
+      <div className='flex justify-evenly gap-32 mx-28'>
+        {/* TODO SWIMLANE */}
+        <div className='flex items-center flex-col w-72'>
+          <Text 
+            className='text-slate-900 text-2xl font-semibold mb-6'
+            value='Todo'
+          />
+          {taskList.map((task) => {
+            if (task.completed === false && task.doing === false) {
+              return <TaskCard 
+                task={task}
+                key={task.id}
+                taskList={taskList}
+                setTaskList={setTaskList}
+                setShowAddTaskButton={setShowAddTaskButton}
+              />
+            }})
+          }
+          <TaskForm 
+            task={task}
+            setTask={setTask}
+            taskList={taskList}
+            setTaskList={setTaskList}
+            description={description}
+            setDescription={setDescription}
+            showCreateTask={showCreateTask}
+            setShowCreateTask={setShowCreateTask}
+            setShowAddTaskButton={setShowAddTaskButton}
+          />
+          <Button 
+            className={`${showAddTaskButton} my-4 bg-transparent text-slate-600 border border-dashed border-slate-400 border-2`}
+            onClick={hideAddTaskButton} 
+            value="Add Task"
+          />
+        </div>
+        {/* DOING SWIMLANE */}
+        <div className='flex flex-col items-center w-72'>
+          <Text 
+            className='text-slate-900 text-2xl font-semibold mb-6'
+            value='Doing'
+          />
+          {taskList.map((task) => {
+            if (task.completed === false && task.doing === true) {
+              return <TaskCard 
+                task={task}
+                key={task.id}
+                taskList={taskList}
+                setTaskList={setTaskList}
+                setShowAddTaskButton={setShowAddTaskButton}
+              />
+            }})
+          }
+        </div>
+        {/* DONE SWIMLANE */}
+        <div className='flex flex-col items-center w-72'>
+          <Text 
+            className='text-slate-900 text-2xl font-semibold mb-6'
+            value='Completed'
+          />
+          {taskList.map((task) => {
+            if (task.completed === true && task.doing === false) {
+              return <TaskCard 
+                task={task}
+                key={task.id}
+                taskList={taskList}
+                setTaskList={setTaskList}
+                setShowAddTaskButton={setShowAddTaskButton}
+              />
+            }})
+          }
+        </div>
       </div>
     </div>
   )

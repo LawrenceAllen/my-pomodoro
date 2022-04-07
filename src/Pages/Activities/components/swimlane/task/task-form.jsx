@@ -57,7 +57,7 @@ const TaskForm = ({
   }
 
   return (
-    <div className="flex flex-col bg-slate-700 px-3 py-2 mb-4">
+    <div className="flex flex-col bg-slate-700 px-3 py-2 mb-4 rounded">
       <form className="flex flex-col content-center w-full">
         <Input 
           className="my-1 placeholder:text-lg"
@@ -76,12 +76,12 @@ const TaskForm = ({
           onChange={changeHandlerDescription}
         />
         <Button
-          className="my-1 bg-red-500 text-white"
+          className="my-1 bg-red-500 text-white rounded"
           onClick={showAddTaskButton}
           value="CANCEL"
         />
         <Button
-          className="my-1 bg-green-500 text-white"
+          className="my-1 bg-green-500 text-white rounded"
           onClick={submitHandler}
           value="SAVE"
         />
